@@ -8,18 +8,19 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-@WebServlet("/")
+@WebServlet("/22222")
 public class PizzaMenuServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<PizzaType> pizzaArray = getPizzaFromDB();
+
         request.setAttribute("pizza", pizzaArray);
-        getServletContext().getRequestDispatcher("/pizzaMenu.jsp").forward(request, response);
+//        getServletContext().getRequestDispatcher("/pizzaMenu.jsp").forward(request, response);
     }
 
     private ArrayList<PizzaType> getPizzaFromDB(){
-        String query = "select * from pizza_cafe.pizza_types";
 
+        String query = "select * from pizza_cafe.pizza_types";
         ArrayList<PizzaType> pizzaArray = new ArrayList<>();
 
         try {
@@ -32,7 +33,7 @@ public class PizzaMenuServlet extends HttpServlet {
 
                 pizzaType.setPosition(result.getInt("pizza_id"));
                 pizzaType.setName(result.getString("pizza_type"));
-                pizzaType.setPrice(result.getInt("price"));
+                pizzaType.setPrice(result.getDouble("price"));
                 pizzaArray.add(pizzaType);
             }
         } catch (SQLException e) {

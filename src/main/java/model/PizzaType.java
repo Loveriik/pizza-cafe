@@ -3,7 +3,7 @@ package model;
 public class PizzaType {
     private int position;
     private String name;
-    private int price;
+    private double price;
 
     public int getPosition() {
         return position;
@@ -11,7 +11,7 @@ public class PizzaType {
     public String getName() {
         return name;
     }
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -23,7 +23,7 @@ public class PizzaType {
         this.name = name;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
